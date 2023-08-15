@@ -3,7 +3,7 @@ import NotFoundPage from "pages/misc/NotFoundPage";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
-const ClientOverviewPage = lazy(() => import("pages/layout/client/overview"));
+const ClientOverviewPage = lazy(() => import("pages/client/overview"));
 
 const AppRoutes = () => {
 	return (
