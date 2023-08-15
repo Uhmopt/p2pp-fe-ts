@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Futura Bk';
+  src: url('./assets/fonts/futura_bk_bt/FutuBk.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Bk';
+  src: url('./assets/fonts/futura_bk_bt/FutuBkIt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Futura Bk BT';
+  src: url('./assets/fonts/futura_bk_bt/FuturaBookBT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Bk BT';
+  src: url('./assets/fonts/futura_bk_bt/FuturaBookItalicBT.ttf')
+    format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Futura Bk BT';
+  color: #6d6e71;
+}
