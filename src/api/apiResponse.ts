@@ -5,9 +5,9 @@ enum APIResponseCode {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface APIResponseType<T = any> {
-	Code: APIResponseCode;
-	Data?: T;
-	Message: string;
+	code: APIResponseCode;
+	data?: T;
+	message: string;
 }
 
 export type APITablePageResponseType<T> = {

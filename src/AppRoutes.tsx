@@ -10,7 +10,7 @@ const AppRoutes = () => {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
 			<Routes>
-				<Route path="auth-login" element={<AuthLoginPage />} />
+				<Route path="auth-login/:token" element={<AuthLoginPage />} />
 				<Route path="/" element={<Layout />}>
 					<Route path="/" element={<ClientOverviewPage />} />
 					{/* fallback 404 page */}

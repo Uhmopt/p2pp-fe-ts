@@ -13,7 +13,13 @@ const AuthLogin: FC<PropsWithChildren<{ email?: string; password?: string }>> = 
 		}
 	}, [email, password]);
 
-	return <div>{isLoading ? "Loading ..." : ""}</div>;
+	return (
+		<div>
+			{isLoading ? "Loading ..." : ""}
+			{email}
+			{password}
+		</div>
+	);
 };
 
 export default AuthLogin;
