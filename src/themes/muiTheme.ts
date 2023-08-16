@@ -18,5 +18,5 @@ export const clientTheme = createTheme({
 		MuiBackdrop: { styleOverrides: { root: { backdropFilter: "blur(5px)" } } },
 	},
 
-	typography: { fontFamily: "Futura Bk BT", fontSize: 10 },
+	typography: { fontFamily: "Futura Bk BT", body1: { fontSize: "0.875rem" }, body2: { fontSize: "1rem" } },
 });
