@@ -21,7 +21,8 @@ const ClientHeaderMenuItem: FC<PropsWithChildren<{ data?: UIMenuData; isActive?:
 				padding: "8px",
 				cursor: "pointer",
 				borderBottom: "solid 1px transparent",
-				...(isActive || isHover ? { borderBottom: (theme) => `solid 1px ${theme.palette.primary.main}` } : {}),
+				...(isActive ? { borderBottom: (theme) => `solid 1px ${theme.palette.primary.main}` } : {}),
+				...(isHover ? { color: (theme) => theme.palette.primary.main } : {}),
 			}}
 			onClick={handleClick}
 			onMouseEnter={() => setIsHover(true)}

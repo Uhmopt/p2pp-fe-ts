@@ -7,7 +7,7 @@ import Sidebar from "./sidebar";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
 	return (
-		<Stack sx={{ height: "100vh" }}>
+		<Stack sx={{ height: "100vh", overflow: "hidden" }}>
 			<Header />
 			<Box flexGrow={1}>
 				<Grid container sx={{ height: "100%" }} alignItems="stretch">

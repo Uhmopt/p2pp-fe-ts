@@ -7,7 +7,7 @@ const ScrollContainer: FC<PropsWithChildren> = ({ children = null }) => {
 
 	useEffect(() => {
 		if (containerRef.current) {
-			containerRef.current.style.maxHeight = `${containerRef.current.offsetHeight - 2}px`;
+			containerRef.current.style.maxHeight = `${containerRef.current.offsetHeight - 10}px`;
 		}
 	}, [containerRef.current]);
 
