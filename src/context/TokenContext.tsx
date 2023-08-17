@@ -23,5 +23,5 @@ export const TokenProvider: React.FC<TokenProviderProps> = ({ children }) => {
 	const tokenRaw = localStorage.getItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN) ?? "";
 	const decoded = tokenRaw ? jwt_decode<UIJwtToken>(tokenRaw) : ({} as UIJwtToken);
 
-	return <TokenContext.Provider value={{ token: decoded }}>{children}</TokenContext.Provider>;
+	return <TokenContext.Provider value={{ token: decoded }}>{decoded?.sub ? children : null}</TokenContext.Provider>;
 };
