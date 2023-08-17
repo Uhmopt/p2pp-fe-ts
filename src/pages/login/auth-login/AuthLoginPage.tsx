@@ -1,7 +1,6 @@
 import { LOCAL_STORAGE_KEYS } from "constants/localStorageKeys";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import AuthLogin from "./AuthLogin";
 
 const AuthLoginPage = () => {
 	const { token = "" } = useParams() ?? "";
@@ -15,11 +14,7 @@ const AuthLoginPage = () => {
 		}
 	}, [token]);
 
-	return (
-		<div>
-			<AuthLogin />
-		</div>
-	);
+	return <div></div>;
 };
 
 export default AuthLoginPage;
