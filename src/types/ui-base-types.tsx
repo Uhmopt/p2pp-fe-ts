@@ -25,3 +25,12 @@ export type UIJwtToken = {
 	prv?: string; // ?
 	sub?: number; // user id
 };
+
+export enum UIColorUnion {
+	primary = "primary",
+	secondary = "secondary",
+	success = "success",
+	error = "error",
+	info = "info",
+	warning = "warning",
+}
