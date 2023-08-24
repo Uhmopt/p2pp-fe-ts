@@ -10,6 +10,10 @@ import { useToken } from "./TokenContext";
 type UserContextType = {
 	user: User;
 	setUser: DispatchFunction<User>;
+	userFormData: User;
+	setUserFormData: DispatchFunction<User>;
+	resetForm: () => void;
+	notChangedForm: boolean;
 	isLoading: boolean;
 };
 
@@ -30,7 +34,13 @@ export const UserProvider: React.FC<PropsWithChildren<{ relations?: Array<string
 	const userId = useMemo(() => token?.sub ?? 0, [token]);
 
 	const [user, setUser] = useState<User>({} as User);
+	const [userFormData, setUserFormData] = useState<User>({} as User);
 	const [isLoading, setIsLoading] = useState(false);
+
+	const notChangedForm = useMemo<boolean>(
+		() => JSON.stringify(user) === JSON.stringify(userFormData),
+		[JSON.stringify(user), JSON.stringify(userFormData)],
+	);
 
 	const loadData = async () => {
 		setIsLoading(true);
@@ -38,11 +48,16 @@ export const UserProvider: React.FC<PropsWithChildren<{ relations?: Array<string
 
 		if (res.code === APIResponseCode.SUCCESS) {
 			setUser((res.data ?? {}) as User);
+			setUserFormData((res?.data ?? {}) as User);
 		} else {
 			enqueueSnackbar(res.message, { variant: "warning" });
 		}
 
 		setIsLoading(false);
+	};
+
+	const resetForm = () => {
+		setUserFormData(user);
 	};
 
 	useEffect(() => {
@@ -52,7 +67,7 @@ export const UserProvider: React.FC<PropsWithChildren<{ relations?: Array<string
 	}, [userId]);
 
 	return (
-		<UserContext.Provider value={{ user, setUser, isLoading }}>
+		<UserContext.Provider value={{ user, setUser, userFormData, setUserFormData, notChangedForm, isLoading, resetForm }}>
 			{isLoading ? <Alert color="info">Loading ...</Alert> : children}
 		</UserContext.Provider>
 	);

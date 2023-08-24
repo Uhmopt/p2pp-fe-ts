@@ -1,8 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import ScrollContainer from "components/containers/ScrollContainer";
 import SidebarMenu from "./SidebarMenu";
+import { useNavigate } from "react-router-dom";
+import { UIMenuData } from "types/ui-base-types";
 
 const Sidebar = () => {
+	const navigate = useNavigate();
+
+	const handleClick = (value: UIMenuData) => {
+		if (value.absPath) {
+			navigate(value.absPath);
+		}
+	};
+
 	return (
 		<Box
 			sx={{ background: (theme) => theme.palette.primary.main, width: 160, height: "100%", color: (theme) => theme.palette.common.white }}
@@ -13,53 +23,58 @@ const Sidebar = () => {
 			<ScrollContainer>
 				<SidebarMenu
 					data={[
-						{ label: "Overview", name: "Overview", path: "" },
+						{ label: "Overview", name: "Overview", absPath: "/" },
 						{
 							label: "Key Details",
 							name: "Key Details",
-							path: "",
+							absPath: "",
 							data: [
-								{ label: "Basic Information", name: "Basic Information", path: "" },
-								{ label: "Contact Details", name: "Contact Details", path: "" },
-								{ label: "Identification", name: "Identification", path: "" },
-								{ label: "Client Group", name: "Client Group", path: "" },
-								{ label: "Client Entity", name: "Client Entity", path: "" },
-								{ label: "Financial & Insurance Position", name: "Financial & Insurance Position", path: "" },
-								{ label: "Status - Marital, Resident, Tax & Birth Place", name: "Status - Marital, Resident, Tax & Birth Place", path: "" },
-								{ label: "Children & Dependents", name: "Children & Dependents", path: "" },
-								{ label: "Health Details", name: "Health Details", path: "" },
-								{ label: "Employment", name: "Employment", path: "" },
-								{ label: "Cashflow", name: "Cashflow", path: "" },
-								{ label: "Lifestyle Goals & Planned Future Expenses", name: "Lifestyle Goals & Planned Future Expenses", path: "" },
-								{ label: "Goals", name: "Goals", path: "" },
-								{ label: "Risk Profile", name: "Risk Profile", path: "" },
-								{ label: "Superannuation Contributions", name: "Superannuation Contributions", path: "" },
-								{ label: "Retirement Planning", name: "Retirement Planning", path: "" },
-								{ label: "Insurance Needs Analysis", name: "Insurance Needs Analysis", path: "" },
-								{ label: "Estate Planning", name: "Estate Planning", path: "" },
-								{ label: "Centerlink", name: "Centerlink", path: "" },
-								{ label: "Stock Broking Details", name: "Stock Broking Details", path: "" },
-								{ label: "Professional Advisers", name: "Professional Advisers", path: "" },
-								{ label: "Service Package", name: "Service Package", path: "" },
-								{ label: "Reviews", name: "Reviews", path: "" },
-								{ label: "Lead/Referral Source", name: "Lead/Referral Source", path: "" },
+								{ label: "Basic Information", name: "Basic Information", absPath: "/basic-information" },
+								{ label: "Contact Details", name: "Contact Details", absPath: "" },
+								{ label: "Identification", name: "Identification", absPath: "" },
+								{ label: "Client Group", name: "Client Group", absPath: "" },
+								{ label: "Client Entity", name: "Client Entity", absPath: "" },
+								{ label: "Financial & Insurance Position", name: "Financial & Insurance Position", absPath: "" },
+								{
+									label: "Status - Marital, Resident, Tax & Birth Place",
+									name: "Status - Marital, Resident, Tax & Birth Place",
+									absPath: "",
+								},
+								{ label: "Children & Dependents", name: "Children & Dependents", absPath: "" },
+								{ label: "Health Details", name: "Health Details", absPath: "" },
+								{ label: "Employment", name: "Employment", absPath: "" },
+								{ label: "Cashflow", name: "Cashflow", absPath: "" },
+								{ label: "Lifestyle Goals & Planned Future Expenses", name: "Lifestyle Goals & Planned Future Expenses", absPath: "" },
+								{ label: "Goals", name: "Goals", absPath: "" },
+								{ label: "Risk Profile", name: "Risk Profile", absPath: "" },
+								{ label: "Superannuation Contributions", name: "Superannuation Contributions", absPath: "" },
+								{ label: "Retirement Planning", name: "Retirement Planning", absPath: "" },
+								{ label: "Insurance Needs Analysis", name: "Insurance Needs Analysis", absPath: "" },
+								{ label: "Estate Planning", name: "Estate Planning", absPath: "" },
+								{ label: "Centerlink", name: "Centerlink", absPath: "" },
+								{ label: "Stock Broking Details", name: "Stock Broking Details", absPath: "" },
+								{ label: "Professional Advisers", name: "Professional Advisers", absPath: "" },
+								{ label: "Service Package", name: "Service Package", absPath: "" },
+								{ label: "Reviews", name: "Reviews", absPath: "" },
+								{ label: "Lead/Referral Source", name: "Lead/Referral Source", absPath: "" },
 							],
 						},
 						{
 							label: "Administration",
 							name: "Administration",
-							path: "",
+							absPath: "",
 							data: [
-								{ name: "Revenue Mapping", label: "Revenue Mapping", path: "" },
-								{ name: "Phone Log", label: "Phone Log", path: "" },
-								{ name: "Email", label: "Email", path: "" },
-								{ name: "SMS Log", label: "SMS Log", path: "" },
-								{ name: "Client Notes", label: "Client Notes", path: "" },
-								{ name: "Tasks", label: "Tasks", path: "" },
-								{ name: "Documents", label: "Documents", path: "" },
+								{ name: "Revenue Mapping", label: "Revenue Mapping", absPath: "" },
+								{ name: "Phone Log", label: "Phone Log", absPath: "" },
+								{ name: "Email", label: "Email", absPath: "" },
+								{ name: "SMS Log", label: "SMS Log", absPath: "" },
+								{ name: "Client Notes", label: "Client Notes", absPath: "" },
+								{ name: "Tasks", label: "Tasks", absPath: "" },
+								{ name: "Documents", label: "Documents", absPath: "" },
 							],
 						},
 					]}
+					onClick={handleClick}
 				/>
 			</ScrollContainer>
 		</Box>

@@ -16,6 +16,22 @@ export const clientTheme = createTheme({
 
 	components: {
 		MuiBackdrop: { styleOverrides: { root: { backdropFilter: "blur(5px)" } } },
+		MuiOutlinedInput: {
+			styleOverrides: {
+				root: {
+					background: "white",
+					"& fieldset": {
+						borderColor: "transparent", // Set the border color to transparent
+					},
+					"&:hover fieldset": {
+						borderColor: "transparent", // Set the border color to transparent on hover
+					},
+					"&.Mui-focused fieldset": {
+						borderColor: "transparent", // Set the border color to transparent when focused
+					},
+				},
+			},
+		},
 	},
 
 	typography: { fontFamily: "Futura Bk BT", body1: { fontSize: "0.875rem" }, body2: { fontSize: "1rem" } },

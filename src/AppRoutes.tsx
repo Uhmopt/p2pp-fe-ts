@@ -1,4 +1,5 @@
 import { TokenProvider } from "context/TokenContext";
+import ClientBasicInformationPage from "pages/client/basic-information";
 import Layout from "pages/layout";
 import AuthLoginPage from "pages/login/auth-login";
 import NotFoundPage from "pages/misc/NotFoundPage";
@@ -22,6 +23,11 @@ const AppRoutes = () => {
 					}
 				>
 					<Route path="/" element={<ClientOverviewPage />} />
+
+					{/* side */}
+					<Route path="basic-information" element={<ClientBasicInformationPage />} />
+
+					{/* top */}
 					<Route path="portfolio" element={<PortfolioPage />} />
 					{/* fallback 404 page */}
 					<Route path="*" element={<NotFoundPage />} />
