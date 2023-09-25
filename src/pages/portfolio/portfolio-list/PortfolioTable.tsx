@@ -10,13 +10,6 @@ const PortfolioTable: FC<PropsWithChildren> = () => {
 					<PortfolioTableApplication />
 					<PortfolioTableApplication />
 					<PortfolioTableApplication />
-					<PortfolioTableApplication />
-					<PortfolioTableApplication />
-					<PortfolioTableApplication />
-					<PortfolioTableApplication />
-					<PortfolioTableApplication />
-					<PortfolioTableApplication />
-					<PortfolioTableApplication />
 				</tbody>
 			</table>
 		</Box>
