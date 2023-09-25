@@ -41,21 +41,6 @@ const ClientBasicInformation = () => {
 			/>
 			<br />
 			<br />
-			<SectionHeader>Contact Details</SectionHeader>
-			<br />
-			<Divider />
-			<br />
-			<EditForm<UserDetail>
-				data={formData}
-				onChange={setFormData}
-				fields={[
-					{ displayName: "Phone", name: "phone1" },
-					{ displayName: "Mobile", name: "phone1" },
-					{ displayName: "Email", name: "email" },
-					{ displayName: "Preferred Contact Name", name: "preferred_contact_name" },
-					{ displayName: "Address", name: "address1" },
-				]}
-			/>
 		</Box>
 	);
 };

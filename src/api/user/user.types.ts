@@ -1,5 +1,6 @@
 import { DBRecord } from "api/api.types";
 import { ClientDetail } from "../client/client.types";
+import { ContactDetail } from "api/contactDetail/contactDetail.types";
 
 export interface User extends DBRecord {
 	name: string;
@@ -14,6 +15,9 @@ export interface User extends DBRecord {
 	user_detail?: UserDetail;
 
 	client_detail?: ClientDetail;
+
+	// contact detail
+	contact_detail?: ContactDetail;
 
 	licensee_detail_id?: number;
 	adviser_detail_id?: number;

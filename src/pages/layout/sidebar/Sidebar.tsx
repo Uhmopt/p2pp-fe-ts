@@ -30,7 +30,7 @@ const Sidebar = () => {
 							absPath: "",
 							data: [
 								{ label: "Basic Information", name: "Basic Information", absPath: "/basic-information" },
-								{ label: "Contact Details", name: "Contact Details", absPath: "" },
+								{ label: "Contact Details", name: "Contact Details", absPath: "/contact-details" },
 								{ label: "Identification", name: "Identification", absPath: "" },
 								{ label: "Client Group", name: "Client Group", absPath: "" },
 								{ label: "Client Entity", name: "Client Entity", absPath: "" },

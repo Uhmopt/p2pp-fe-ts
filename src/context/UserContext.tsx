@@ -6,6 +6,7 @@ import { useSnackbar } from "notistack";
 import React, { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from "react";
 import { DispatchFunction } from "types/ui-base-types";
 import { useToken } from "./TokenContext";
+import { DEFAULT_USER } from "./defaultUser";
 
 type UserContextType = {
 	user: User;
@@ -33,8 +34,8 @@ export const UserProvider: React.FC<PropsWithChildren<{ relations?: Array<string
 	const { token } = useToken();
 	const userId = useMemo(() => token?.sub ?? 0, [token]);
 
-	const [user, setUser] = useState<User>({} as User);
-	const [userFormData, setUserFormData] = useState<User>({} as User);
+	const [user, setUser] = useState<User>(DEFAULT_USER as User);
+	const [userFormData, setUserFormData] = useState<User>(DEFAULT_USER as User);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const notChangedForm = useMemo<boolean>(
@@ -47,8 +48,8 @@ export const UserProvider: React.FC<PropsWithChildren<{ relations?: Array<string
 		const res = await userService.get({ id: userId, relations });
 
 		if (res.code === APIResponseCode.SUCCESS) {
-			setUser((res.data ?? {}) as User);
-			setUserFormData((res?.data ?? {}) as User);
+			setUser((res.data ?? DEFAULT_USER) as User);
+			setUserFormData((res?.data ?? DEFAULT_USER) as User);
 		} else {
 			enqueueSnackbar(res.message, { variant: "warning" });
 		}

@@ -6,6 +6,7 @@ import {
 	Box,
 	CircularProgress,
 	FormHelperText,
+	Grid,
 	InputLabel,
 	TextField,
 	Typography,
@@ -141,45 +142,55 @@ const EditFormControlChoice: FC<
 			{isValid ? null : <FormHelperText error>{isValid ? "" : errorMessage}</FormHelperText>}
 		</div>
 	) : (
-		<div className="w-full" onClick={() => onClick(field)}>
-			{isLabel ? <InputLabel>{label}</InputLabel> : null}
-			<Autocomplete
-				loading={isLoading}
-				value={value ?? null}
-				onChange={handleChange}
-				options={options ?? []}
-				renderInput={(params) => {
-					return (
-						<TextField
-							{...params}
-							inputRef={ref}
-							placeholder={
-								field.placeholder === true ? `Enter ${(field.displayName ?? "").toLowerCase()}` : field.placeholder ? field.placeholder : ""
-							}
-							InputProps={{
-								...params.InputProps,
-								endAdornment: (
-									<React.Fragment>
-										{isLoading ? <CircularProgress color="inherit" size={20} /> : null}
-										{params.InputProps.endAdornment}
-									</React.Fragment>
-								),
-							}}
-							onBlur={handleBlur}
-							error={!isValid}
-							helperText={isValid ? "" : errorMessage}
-							label={isLabel ? undefined : label}
-						/>
-					);
-				}}
-				size="small"
-				getOptionLabel={getOptionLabel}
-				fullWidth
-				disabled={field.disableIfNoOption && !options?.length}
-				onOpen={handleOpen}
-				inputValue={isEmpty(options) && insideValue ? defaultOptionLabel : renderValue}
-			/>
-		</div>
+		<Grid container alignItems="center" className="w-full" onClick={() => onClick(field)}>
+			{isLabel ? (
+				<Grid item lg={3} md={4} sm={4} xs={4}>
+					<Typography>{label}</Typography>
+				</Grid>
+			) : null}
+			<Grid item lg={9} md={8} sm={8} xs={8}>
+				<Autocomplete
+					loading={isLoading}
+					value={value ?? null}
+					onChange={handleChange}
+					options={options ?? []}
+					renderInput={(params) => {
+						return (
+							<TextField
+								{...params}
+								inputRef={ref}
+								placeholder={
+									field.placeholder === true
+										? `Enter ${(field.displayName ?? "").toLowerCase()}`
+										: field.placeholder
+										? field.placeholder
+										: ""
+								}
+								InputProps={{
+									...params.InputProps,
+									endAdornment: (
+										<React.Fragment>
+											{isLoading ? <CircularProgress color="inherit" size={20} /> : null}
+											{params.InputProps.endAdornment}
+										</React.Fragment>
+									),
+								}}
+								onBlur={handleBlur}
+								error={!isValid}
+								helperText={isValid ? "" : errorMessage}
+								label={isLabel ? undefined : label}
+							/>
+						);
+					}}
+					size="small"
+					getOptionLabel={getOptionLabel}
+					fullWidth
+					disabled={field.disableIfNoOption && !options?.length}
+					onOpen={handleOpen}
+					inputValue={isEmpty(options) && insideValue ? defaultOptionLabel : renderValue}
+				/>
+			</Grid>
+		</Grid>
 	);
 };
 
